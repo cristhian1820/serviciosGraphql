@@ -1,0 +1,30 @@
+input PersonajeInput{
+    id:ID,
+    nombre:String!,
+    apodo:String!,
+    ocupacion:String!,
+    fecha:String!,
+}
+
+type Personaje {
+    id:ID!,
+    nombre:String,
+    apodo:String,
+    ocupacion:String,
+    fecha:String,
+    series: Series
+}
+
+extend type Query {
+    allPersonajes:[Personaje]
+    personajeId(id:ID):Personaje
+}
+
+extend type Mutation{
+    registrarPersonaje(Personaje:PersonajeInput, serie:Int!): Personaje
+}
+
+schema {
+    query: Query,
+    mutation: Mutation
+}

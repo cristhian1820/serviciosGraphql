@@ -1,0 +1,21 @@
+input SeriesInput{
+    id: ID,
+    nombre: String!,
+    estaciones: String!
+}
+
+type Series{
+    id: ID!,
+    nombre: String,
+    estaciones: String
+}
+
+type Query{
+    allSerie:[Series]
+    serieId(id:ID): Series
+}
+
+type Mutation {
+    registrarSeries(series:SeriesInput!):Series
+}
+
